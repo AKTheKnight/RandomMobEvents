@@ -1,0 +1,21 @@
+{
+  "modListVersion": 2,
+  "modList": [{
+    "modid": "RandomMobEvents",
+    "name": "Random Mob Events",
+    "description": "Adds configurable \"random\" events when a player attacks/kills an entity.",
+    "version": "1.8.9-1.0.0",
+    "mcversion": "1.8.9",
+    "url": "http://minecraft.curseforge.com/projects/random-mob-events",
+    "updateUrl": "",
+    "authorList": [ "AKTheKnight" ],
+    "credits": "Authored by AKTheKnight, some ideas by SnowShock35",
+    "logoFile": "",
+    "screenshots": [],
+    "parent": "",
+    "requiredMods": [ "Forge" ],
+    "dependencies": [],
+    "dependants": [],
+    "useDependencyInformation": false
+  }]
+}
