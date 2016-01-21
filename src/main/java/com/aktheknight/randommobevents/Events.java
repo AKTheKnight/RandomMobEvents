@@ -1,7 +1,9 @@
 package com.aktheknight.randommobevents;
 
+import java.lang.reflect.Method;
 import java.util.Random;
 
+import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -47,7 +49,7 @@ public class Events {
 		}
 	}
 	
-	public void isCreeper(Entity creeper, EntityLivingBase player) {
+	public void isCreeper(Entity entity, EntityLivingBase player) {
 //		LOGGER.log(Level.FINEST, "Entity was a creeper");
 		if(chance(Vars.creeperPotionChance)) {
 			player.addPotionEffect(new PotionEffect(Potion.blindness.getId(), Vars.creeperBlind * 20));
@@ -61,12 +63,25 @@ public class Events {
 			player.addPotionEffect(new PotionEffect(Potion.wither.getId(), Vars.creeperWither * 20));
 		}
 		if(chance(Vars.creeperExplodeChance)) {
+			EntityCreeper creeper = (EntityCreeper) entity;
 			
-			Explosion explosion = new Explosion(creeper.worldObj, null, creeper.posX, creeper.posY, creeper.posZ, 4.0F, false, true);
-			explosion.doExplosionA();
-			explosion.doExplosionB(true);
+			Class<?> noparams[] = {};
+			Object[] paramnone = {};
 			
-			creeper.setDead();
+			try {
+				Method explode = creeper.getClass().getDeclaredMethod("explode", noparams);
+				explode.setAccessible(true);
+				explode.invoke(creeper, paramnone);
+			} 
+			catch (Exception e) {
+				LOGGER.log(Level.ERROR, "Unable to access explode method for creeper");
+				LOGGER.log(Level.INFO, "Fired default explosion size");
+				Explosion explosion = new Explosion(creeper.worldObj, null, creeper.posX, creeper.posY, creeper.posZ, 3.0F, false, true);
+				explosion.doExplosionA();
+				explosion.doExplosionB(true);
+				
+				creeper.setDead();
+			}
 		}
 	}
 	
