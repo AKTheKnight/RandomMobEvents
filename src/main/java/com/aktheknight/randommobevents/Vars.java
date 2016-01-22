@@ -8,6 +8,9 @@ public class Vars {
 	public static boolean zombie;
 	public static boolean skeleton;
 	public static boolean caveSpider;
+	public static boolean enderman;
+	public static boolean witch;
+	public static boolean blaze;
 	
 	//chances
 	//creeper
@@ -25,6 +28,15 @@ public class Vars {
 	
 	//cavespider
 	public static int caveSpiderPotionChance;
+	
+	//enderman
+	public static int endermanPotionChance;
+	
+	//witch
+	public static int witchPotionChance;
+	
+	//blaze
+	public static int blazePotionChance;
 	
 	//entities
 	//creeper
@@ -81,4 +93,37 @@ public class Vars {
 	public static int caveSpiderPoison;
 	public static int caveSpiderWeakness;
 	public static int caveSpiderWither;
+	
+	//enderman
+	public static int endermanBlind;
+	public static int endermanConfusion;
+	public static int endermanDigSlow;
+	public static int endermanHarm;
+	public static int endermanHunger;
+	public static int endermanMoveSlow;
+	public static int endermanPoison;
+	public static int endermanWeakness;
+	public static int endermanWither;
+	
+	//witch
+	public static int witchBlind;
+	public static int witchConfusion;
+	public static int witchDigSlow;
+	public static int witchHarm;
+	public static int witchHunger;
+	public static int witchMoveSlow;
+	public static int witchPoison;
+	public static int witchWeakness;
+	public static int witchWither;
+	
+	//blaze
+	public static int blazeBlind;
+	public static int blazeConfusion;
+	public static int blazeDigSlow;
+	public static int blazeHarm;
+	public static int blazeHunger;
+	public static int blazeMoveSlow;
+	public static int blazePoison;
+	public static int blazeWeakness;
+	public static int blazeWither;
 }

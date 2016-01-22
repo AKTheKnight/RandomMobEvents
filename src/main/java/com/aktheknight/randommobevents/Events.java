@@ -9,10 +9,13 @@ import org.apache.logging.log4j.Logger;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.monster.EntityBlaze;
 import net.minecraft.entity.monster.EntityCaveSpider;
 import net.minecraft.entity.monster.EntityCreeper;
+import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.monster.EntitySpider;
+import net.minecraft.entity.monster.EntityWitch;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
@@ -44,6 +47,15 @@ public class Events {
 			}
 			else if(event.target instanceof EntityCaveSpider && Vars.caveSpider) {
 				isCaveSpider(event.target, event.entityLiving);
+			}
+			else if(event.target instanceof EntityEnderman && Vars.enderman) {
+				isEnderman(event.target, event.entityLiving);
+			}
+			else if(event.target instanceof EntityWitch && Vars.enderman) {
+				isWitch(event.target, event.entityLiving);
+			}
+			else if(event.target instanceof EntityBlaze && Vars.blaze) {
+				isBlaze(event.target, event.entityLiving);
 			}
 			return;
 		}
@@ -143,6 +155,51 @@ public class Events {
 			player.addPotionEffect(new PotionEffect(Potion.poison.getId(), Vars.caveSpiderPoison * 20));
 			player.addPotionEffect(new PotionEffect(Potion.weakness.getId(), Vars.caveSpiderWeakness * 20));
 			player.addPotionEffect(new PotionEffect(Potion.wither.getId(), Vars.caveSpiderWither * 20));
+		}
+	}
+	
+	public void isEnderman(Entity enderman, EntityLivingBase player) {
+//		LOGGER.log(Level.INFO, "Was enderman");
+		if (chance(Vars.endermanPotionChance)) {
+			player.addPotionEffect(new PotionEffect(Potion.blindness.getId(), Vars.endermanBlind * 20));
+			player.addPotionEffect(new PotionEffect(Potion.confusion.getId(), Vars.endermanConfusion * 20));
+			player.addPotionEffect(new PotionEffect(Potion.digSlowdown.getId(), Vars.endermanDigSlow * 20));
+			player.addPotionEffect(new PotionEffect(Potion.harm.getId(), Vars.endermanHarm * 20));
+			player.addPotionEffect(new PotionEffect(Potion.hunger.getId(), Vars.endermanHunger * 20));
+			player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.getId(), Vars.endermanMoveSlow * 20));
+			player.addPotionEffect(new PotionEffect(Potion.poison.getId(), Vars.endermanPoison * 20));
+			player.addPotionEffect(new PotionEffect(Potion.weakness.getId(), Vars.endermanWeakness * 20));
+			player.addPotionEffect(new PotionEffect(Potion.wither.getId(), Vars.endermanWither * 20));
+		}
+	}
+	
+	public void isWitch(Entity witch, EntityLivingBase player) {
+//		LOGGER.log(Level.INFO, "Was witch");
+		if (chance(Vars.witchPotionChance)) {
+			player.addPotionEffect(new PotionEffect(Potion.blindness.getId(), Vars.witchBlind * 20));
+			player.addPotionEffect(new PotionEffect(Potion.confusion.getId(), Vars.witchConfusion * 20));
+			player.addPotionEffect(new PotionEffect(Potion.digSlowdown.getId(), Vars.witchDigSlow * 20));
+			player.addPotionEffect(new PotionEffect(Potion.harm.getId(), Vars.witchHarm * 20));
+			player.addPotionEffect(new PotionEffect(Potion.hunger.getId(), Vars.witchHunger * 20));
+			player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.getId(), Vars.witchMoveSlow * 20));
+			player.addPotionEffect(new PotionEffect(Potion.poison.getId(), Vars.witchPoison * 20));
+			player.addPotionEffect(new PotionEffect(Potion.weakness.getId(), Vars.witchWeakness * 20));
+			player.addPotionEffect(new PotionEffect(Potion.wither.getId(), Vars.witchWither * 20));
+		}
+	}
+	
+	public void isBlaze(Entity blaze, EntityLivingBase player) {
+//		LOGGER.log(Level.INFO, "Was blaze");
+		if (chance(Vars.blazePotionChance)) {
+			player.addPotionEffect(new PotionEffect(Potion.blindness.getId(), Vars.blazeBlind * 20));
+			player.addPotionEffect(new PotionEffect(Potion.confusion.getId(), Vars.blazeConfusion * 20));
+			player.addPotionEffect(new PotionEffect(Potion.digSlowdown.getId(), Vars.blazeDigSlow * 20));
+			player.addPotionEffect(new PotionEffect(Potion.harm.getId(), Vars.blazeHarm * 20));
+			player.addPotionEffect(new PotionEffect(Potion.hunger.getId(), Vars.blazeHunger * 20));
+			player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.getId(), Vars.blazeMoveSlow * 20));
+			player.addPotionEffect(new PotionEffect(Potion.poison.getId(), Vars.blazePoison * 20));
+			player.addPotionEffect(new PotionEffect(Potion.weakness.getId(), Vars.blazeWeakness * 20));
+			player.addPotionEffect(new PotionEffect(Potion.wither.getId(), Vars.blazeWither * 20));
 		}
 	}
 	

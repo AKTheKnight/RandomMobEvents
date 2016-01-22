@@ -4,7 +4,7 @@
     "modid": "RandomMobEvents",
     "name": "Random Mob Events",
     "description": "Adds configurable \"random\" events when a player attacks/kills an entity.",
-    "version": "1.8.9-1.0.0",
+    "version": "1.8.9-1.0.2",
     "mcversion": "1.8.9",
     "url": "http://minecraft.curseforge.com/projects/random-mob-events",
     "updateUrl": "",
