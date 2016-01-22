@@ -3,7 +3,8 @@ package com.aktheknight.randommobevents;
 public class Vars {
 	
 	//Booleans
-	public static boolean creeper;
+	public static boolean creeperExplode;
+	public static boolean creeperPotions;
 	public static boolean spider;
 	public static boolean zombie;
 	public static boolean skeleton;

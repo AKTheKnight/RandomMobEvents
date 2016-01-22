@@ -33,7 +33,7 @@ public class Events {
 	public void AttackEntity(AttackEntityEvent event) {
 		if (!event.target.worldObj.isRemote) {
 //			LOGGER.log(Level.FINEST, "Fired AttackEntityEvent");
-			if (event.target instanceof EntityCreeper && Vars.creeper) {
+			if (event.target instanceof EntityCreeper && (Vars.creeperExplode || Vars.creeperPotions)) {
 				isCreeper(event.target, event.entityLiving);
 			}
 			else if (event.target instanceof EntitySpider && Vars.spider) {
@@ -63,7 +63,7 @@ public class Events {
 	
 	public void isCreeper(Entity entity, EntityLivingBase player) {
 //		LOGGER.log(Level.FINEST, "Entity was a creeper");
-		if(chance(Vars.creeperPotionChance)) {
+		if(Vars.creeperPotions && chance(Vars.creeperPotionChance)) {
 			player.addPotionEffect(new PotionEffect(Potion.blindness.getId(), Vars.creeperBlind * 20));
 			player.addPotionEffect(new PotionEffect(Potion.confusion.getId(), Vars.creeperConfusion * 20));
 			player.addPotionEffect(new PotionEffect(Potion.digSlowdown.getId(), Vars.creeperDigSlow * 20));
@@ -74,7 +74,7 @@ public class Events {
 			player.addPotionEffect(new PotionEffect(Potion.weakness.getId(), Vars.creeperWeakness * 20));
 			player.addPotionEffect(new PotionEffect(Potion.wither.getId(), Vars.creeperWither * 20));
 		}
-		if(chance(Vars.creeperExplodeChance)) {
+		if(Vars.creeperPotions && chance(Vars.creeperExplodeChance)) {
 			EntityCreeper creeper = (EntityCreeper) entity;
 			
 			Class<?> noparams[] = {};
