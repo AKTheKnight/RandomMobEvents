@@ -38,7 +38,7 @@ public class ConfigHandler {
 	private static void loadCreeperSettings() {
 		ArrayList<String> catOrder = configOrder;
 		
-		catOrder.add(0, "InstantExplosions");
+		catOrder.add(0, "InstantExplosion");
 		catOrder.add(1, "ExplodeChance");
 		
 		category = "Creeper";
