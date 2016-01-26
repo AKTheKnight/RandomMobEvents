@@ -9,8 +9,12 @@ Changelog:
 		CaveSpider
 1.0.1
 	Fixed all the broken stuff
-1.0.0
+1.0.2
 	Fixed config descs and order
 	Added enderman
 	Added witch
 	Added blaze
+1.0.3
+	Config
+1.0.4
+	Stopped events firing if player is in creative mode

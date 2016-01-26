@@ -31,7 +31,7 @@ public class Events {
 	
 	@SubscribeEvent
 	public void AttackEntity(AttackEntityEvent event) {
-		if (!event.target.worldObj.isRemote) {
+		if (!event.target.worldObj.isRemote && !event.entityPlayer.capabilities.isCreativeMode) {
 //			LOGGER.log(Level.FINEST, "Fired AttackEntityEvent");
 			if (event.target instanceof EntityCreeper && (Vars.creeperExplode || Vars.creeperPotions)) {
 				isCreeper(event.target, event.entityLiving);
