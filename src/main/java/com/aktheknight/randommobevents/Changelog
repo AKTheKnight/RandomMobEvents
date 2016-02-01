@@ -18,3 +18,5 @@ Changelog:
 	Config
 1.0.4
 	Stopped events firing if player is in creative mode
+1.0.5
+	Mod no longer required on client for multiplayer
